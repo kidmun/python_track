@@ -1,6 +1,6 @@
 class Solution:
     def queensAttacktheKing(self, queens: List[List[int]], king: List[int]) -> List[List[int]]:
-        
+     
         ans = []
         goto = [-1, 0, 1]
         for i in goto:
