@@ -2,9 +2,9 @@ class Solution:
     def queensAttacktheKing(self, queens: List[List[int]], king: List[int]) -> List[List[int]]:
      
         ans = []
-        goto = [-1, 0, 1]
-        for i in goto:
-            for j in goto:
+   
+        for i in range(-1, 2):
+            for j in range(-1, 2):
                 if i == j == 0:
                     continue
                 x = king[0]
