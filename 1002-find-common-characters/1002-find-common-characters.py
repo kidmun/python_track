@@ -18,9 +18,9 @@ class Solution:
                 li.append(con[j][i])
             ans.append(min(li))
         res = []
-        print(con)
+
         asc = 97
-        print(ans)
+     
         for i, a in enumerate(ans):
             if a > 0:
                 x = a
