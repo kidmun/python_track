@@ -23,13 +23,9 @@ class Solution:
                     list1 = list1.next
                 break
             
-            if list1.val == list2.val:
-                trav.next = list1
-                trav = trav.next
-         
-                list1 = list1.next
+        
                
-            elif list1.val > list2.val:
+            if list1.val > list2.val:
                 trav.next = list2
                 trav = trav.next
                 list2 = list2.next
