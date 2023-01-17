@@ -4,16 +4,28 @@ class Solution:
         for i in range(len(names)):
             obj[heights[i]] = names[i]
         
-        for i in range(len(heights)):
-            for j in range(len(heights) - 1 - i):
-                if heights[j] < heights[j + 1]:
-                    heights[j], heights[j + 1] = heights[j + 1], heights[j]
+#         for i in range(len(heights)):
+#             for j in range(len(heights) - 1 - i):
+#                 if heights[j] < heights[j + 1]:
+#                     heights[j], heights[j + 1] = heights[j + 1], heights[j]
         
+#         for i, h in enumerate(heights):
+#             names[i] = obj[h]
+            
+#         return names
+        
+        for i in range(len(names) - 1):
+            large = i
+            for j in range(i + 1, len(names)):
+                if heights[j] > heights[large]:
+                    large = j
+            heights[large], heights[i] = heights[i], heights[large]
+                
+    
         for i, h in enumerate(heights):
             names[i] = obj[h]
             
         return names
-            
         
         
         
