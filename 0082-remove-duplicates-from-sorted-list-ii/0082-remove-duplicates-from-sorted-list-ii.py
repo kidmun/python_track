@@ -28,8 +28,7 @@ class Solution:
                       
                 prev = cur
                 count = 0
-                
-            
+                          
             cur = cur.next
             prev.next = None
             
@@ -42,20 +41,6 @@ class Solution:
                 if res.val != prev.val:
                     res.next = prev
                     res = res.next
-                    res.next = None
-
-            
-        
-        
+                    res.next = None         
         return ans
-            
-            
-            
-                
-                
-     
-
-                
-            
-   
-        return head
+  
