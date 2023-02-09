@@ -10,7 +10,7 @@ class Solution:
         fast = head
         odd_h = odd_t = head
         even_h = even_t = head.next
-        print(head)
+        
         while fast and fast.next:
             fast = fast.next.next
             if fast:
