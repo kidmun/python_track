@@ -6,8 +6,7 @@
 class Solution:
     def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
         
-        ans = ListNode(3)
-        
+        ans = ListNode(3)     
         trav = ans
         while list1 or list2:
             if not list1:
@@ -22,9 +21,6 @@ class Solution:
                     trav = trav.next
                     list1 = list1.next
                 break
-            
-        
-               
             if list1.val > list2.val:
                 trav.next = list2
                 trav = trav.next
