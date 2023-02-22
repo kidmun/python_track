@@ -23,8 +23,7 @@ class Solution:
                 ans = min(ans, right - left)
             total -= nums[left]
             left += 1
-            
-            
+           
         if ans:
             return ans
         else:
