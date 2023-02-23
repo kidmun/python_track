@@ -5,8 +5,8 @@ class Solution:
             count[trip[1]] += trip[0]
             count[trip[2]] -= trip[0]
         cur = 0
-       
-        for p in sorted(count):
+        c = sorted(count)
+        for p in c:
             cur += count[p]
             if cur > capacity:
                 return False
