@@ -9,10 +9,10 @@ class Solution:
             cur += num
             if (cur - k) in count:
                 ans += count[cur - k]
-            if cur in count:
-                count[cur] += 1
-            else:
+            if cur not in count:
                 count[cur] = 1
+            else:
+                count[cur] += 1
         return ans
         
         
