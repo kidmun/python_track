@@ -8,21 +8,18 @@ class Solution:
             else:
                 count[shift[0]] += 1
                 count[shift[1]+1] -= 1
-        keys = sorted(count)
+       
         cur = 0
-        pref = []
+        ans = [] 
         for i in range(len(s)):
             if i in count:
                 cur += count[i]
-            pref.append(cur)
-        ans = []
-        for i, p in enumerate(pref):
-            if p < 0:
-                val = p % -26
+            if cur < 0:
+                val = cur % -26
             else:
-                val = p % 26
+                val = cur % 26
             if (ord(s[i]) + val) < 97:
-                print(i)
+           
                 ans.append(chr(97 + 26 - (97 -(ord(s[i]) + val))))
             elif (ord(s[i]) + val) > 122:
                 
