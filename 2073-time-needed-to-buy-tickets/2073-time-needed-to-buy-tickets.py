@@ -1,12 +1,13 @@
 class Solution:
     def timeRequiredToBuy(self, tickets: List[int], k: int) -> int:
         ans = 0
+        val = tickets[k]
         for i in range(k):
-            ans += min(tickets[k], tickets[i])
-        val = tickets[k] - 1
+            ans += min(val, tickets[i])
+        val -= 1
         for i in range(k + 1, len(tickets)):
             ans += min(val, tickets[i])
-        return ans + tickets[k]
+        return ans + val + 1
             
             
            
