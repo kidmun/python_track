@@ -1,0 +1,66 @@
+import sys
+import math
+import bisect
+import heapq
+import itertools
+from itertools import accumulate
+from sys import stdin,stdout
+from math import gcd,floor,sqrt,log, ceil
+from collections import defaultdict, Counter, deque
+from bisect import bisect_left,bisect_right, insort_left, insort_right
+    
+mod=1000000007
+    
+def get_ints(): return map(int, sys.stdin.readline().strip().split())
+def get_list(): return list(map(int, sys.stdin.readline().strip().split()))
+def get_string(): return sys.stdin.readline().strip()
+def get_int(): return int(sys.stdin.readline().strip())
+def get_list_strings(): return list(map(str, sys.stdin.readline().strip().split()))
+    
+    
+    
+def solve():
+    n = get_int()
+    nums = get_list()
+    count = 0
+    flag2 = False
+    def mergeSort(left, right):
+        if left >= right:
+            return [nums[left]]
+        mid = (left + right) // 2
+        l_arr = mergeSort(left, mid)
+        r_arr = mergeSort(mid + 1, right)
+        return merge(l_arr, r_arr)
+    def merge(l_arr, r_arr):
+        nonlocal count, flag2
+        arr = [0] * (len(l_arr) + len(r_arr))
+        i = 0
+        p1 = 0
+        p2 = 0
+        flag = False
+        while i < len(arr):
+            if p1 < len(l_arr) and (p2 >= len(r_arr) or l_arr[p1] <= r_arr[p2]):
+                arr[i] = l_arr[p1]
+                if p2 > 0  and p2 < len(r_arr):
+                    flag2 = True
+                p1 += 1
+            else:
+                arr[i] = r_arr[p2]
+                if p1 > 0  and p1 < len(l_arr):
+                    flag2 = True
+                p2 += 1
+                if p1 == 0:
+                    flag = True
+            i += 1
+  
+        if flag:
+            count += 1
+        return arr
+    mergeSort(0, len(nums) - 1)
+    if flag2:
+        return -1
+    return count
+    
+if __name__ == "__main__":
+    for _ in range(get_int()):
+        print(solve())
