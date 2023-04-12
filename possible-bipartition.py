@@ -7,7 +7,6 @@ class Solution:
         for dis in dislikes:
             graph[dis[0]].append(dis[1])
             graph[dis[1]].append(dis[0])
-        print(graph)
         def dfs(node, node_color):
             colors[node - 1] = node_color
             for ne in graph[node]:
