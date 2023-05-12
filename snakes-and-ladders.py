@@ -5,7 +5,6 @@ class Solution:
         n = len(board)
         while queue:
             length = len(queue)
-            print(queue)
             for _ in range(length):
                 cur = queue.popleft()
                 if cur[0] == n ** 2:
