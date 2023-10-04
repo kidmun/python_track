@@ -1,22 +1,18 @@
 class Solution:
     def checkIfPrerequisite(self, numCourses: int, prerequisites: List[List[int]], queries: List[List[int]]) -> List[bool]:
-        graph = defaultdict(list)
-        for a, b in prerequisites:
-            graph[a].append(b)
+
+        distance = [[float("inf")] * numCourses for i in range(numCourses)]
+        for a, b in  prerequisites:
+            distance[a][b] = 1
+
+        for k in range(numCourses):
+            for i in range(numCourses):
+                for j in range(numCourses):
+                    distance[i][j] = min(distance[i][j], distance[i][k] + distance[k][j])
         ans = []
-        
-        for quer in queries:
-            flag = False
-            stack = [quer[0]]
-            visited = set([quer[0]])
-            while stack:
-                cur = stack.pop()
-                if cur == quer[1]:
-                    flag = True
-                    break
-                for ne in graph[cur]:
-                    if ne not in visited:
-                        stack.append(ne)
-                        visited.add(ne)
-            ans.append(flag)
+        for a, b in queries:
+            if distance[a][b] == float("inf"):
+                ans.append(False)
+            else:
+                ans.append(True)
         return ans
