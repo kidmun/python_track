@@ -1,5 +1,6 @@
 class Solution:
     def maxArea(self, height: List[int]) -> int:
+        print("workig")
         large = 0
         left = 0
         right = len(height) - 1
